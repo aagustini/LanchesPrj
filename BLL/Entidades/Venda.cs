@@ -8,7 +8,7 @@ namespace BLL.Entidades
     {
         public DateTime Data { get;  }
 
-        private List<ItemVenda> itens;
+        private List<ItemVenda> itens;  // ArrayList do java
 
         public int NroVenda { get; }
 
@@ -42,7 +42,7 @@ namespace BLL.Entidades
             decimal total = 0;
 
             // java
-            // for (ItemVenda item : itens)
+            // for  (ItemVenda item :  itens)
             foreach (ItemVenda item in itens)
             {
                 total += item.getValor();
@@ -69,7 +69,8 @@ namespace BLL.Entidades
                     item.getValor());
             }
 
-            nota += String.Format("\nValor total: {0,7:#.00}",this.getValor());
+            nota += String.Format("\nValor total: {0,7:#.00}",
+                      this.getValor());
             return nota;
         } 
 

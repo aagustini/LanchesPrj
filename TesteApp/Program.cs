@@ -8,24 +8,25 @@ namespace TesteApp
     class Program
     {
    
-
-        
         static void Main(string[] args)
         {
             FachadaProdutos fachadaProd = new FachadaProdutos();
             #region # testa dados
-            fachadaProd.adicionar(1, "Refrigerante lata", 5m);
+            fachadaProd.adicionar(1, "Refrigerante lata", 5M);
             fachadaProd.adicionar(2, "Super bauru", 25m);
+            fachadaProd.adicionar(6, "Fritas", 10m);
+            fachadaProd.adicionar(100, "Combo 1",
+                                 new List<int>() { 1, 2, 6 });
+
             fachadaProd.adicionar(3, "Torrada americana", 15m);
             fachadaProd.adicionar(4, "Barra Chocolate", 6m);
             fachadaProd.adicionar(5, "Cafe com leite", 4m);
-            fachadaProd.adicionar(6, "Fritas", 10m);
+           
+           
+            fachadaProd.adicionar(101, "Combo 1 c/sobremesa", 
+                            new List<int>() { 4, 100, 4 });
 
-            fachadaProd.adicionar(100, "Combo 1", new List<int>() { 1, 2, 6 });
-
-            fachadaProd.adicionar(101, "Combo 1 c/sobremesa", new List<int>() { 4, 100, 4 });
-
-            Console.WriteLine("Produtos cadastrados");
+            Console.WriteLine("Produtos cadastrado ");
             foreach (IProduto prod in fachadaProd.buscarProdutos())
             {
                 Console.WriteLine(prod);
@@ -38,14 +39,23 @@ namespace TesteApp
             int venda1 = fachada.iniciarVenda();
             fachada.pedido(venda1, 1, 1);
             fachada.pedido(venda1, 2, 1);
-            fachada.pedido(venda1, 6, 3);
-            
+            fachada.pedido(venda1, 6, 1);
+            fachada.pedido(venda1, 4, 2);
+
             fachada.fecharVenda(venda1);
             Console.WriteLine();
             Console.WriteLine(fachada.nota(venda1));
 
+            int venda3 = fachada.iniciarVenda();
+            fachada.pedido(venda3, 101, 1);
+
+
+            fachada.fecharVenda(venda3);
+            Console.WriteLine();
+            Console.WriteLine(fachada.nota(venda3));
+
             int venda2 = fachada.iniciarVenda();
-            fachada.pedido(venda2, 101, 1);
+            fachada.pedido(venda2, 100, 1);
             fachada.pedido(venda2, 4, 2);
             
             fachada.fecharVenda(venda2);

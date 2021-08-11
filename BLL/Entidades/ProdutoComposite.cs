@@ -34,8 +34,10 @@ namespace BLL.Entidades
             foreach (IProduto p in lista) prods += p.Nome + ", ";
 
 
-            return "Produto { Cod: " + Codigo + " Nome: " + Nome +
-                " Preco Unitario: " + Preco + prods + ")}";
+            return "Produto { Cod: " + Codigo + 
+                             " Nome: " + Nome +
+                              " Preco Unitario: " + Preco + 
+                              prods + ")}";
         }
 
     }

@@ -7,7 +7,8 @@ namespace BLL.Repositorios
 {
     public class ProdutosFactory
     {
-        public static IProduto criar(int umCodigo, string umNome, decimal umPreco)
+        public static IProduto criar(int umCodigo, 
+                                    string umNome, decimal umPreco)
         {
             return new Produto()
             {
@@ -17,7 +18,9 @@ namespace BLL.Repositorios
             };
         }
 
-        public static IProduto criar(int umCodigo, string umNome, List<int> prods)
+        public static IProduto criar(int umCodigo,
+                                     string umNome, 
+                                     List<int> prods)
         {
             ProdutoComposite novo = new ProdutoComposite()
             {
